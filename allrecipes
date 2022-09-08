@@ -10,6 +10,7 @@ library(stringi)
 # Beware that this will overwrite the file every time if the file is not changed. 
 # The 1/3 and 1/8 Unicode characters are bugged and do not export correctly in R. I implemented a change such that they are readable in the output. 
 
+```{r}
 scrape_allrecipes <- function(URL) {
   recipe <- read_html(URL)
   
@@ -42,16 +43,19 @@ scrape_allrecipes <- function(URL) {
               fileEncoding = "UTF-8",
               quote = FALSE)
 }
-
+```
 # Insert allrecipe recipe URLs here
+```{r}
 recipe_urls <- c(
   "https://www.allrecipes.com/recipe/8386501/french-vanilla-cake-with-french-vanilla-buttercream-frosting/",
   "https://www.allrecipes.com/recipe/19247/soft-oatmeal-cookies/",
   "https://www.allrecipes.com/recipe/8463805/rainbow-sheet-cake/"
 
 )
-
+```
 # Run this for loop to acquire multiple recipes at a time
+```{r}
 recipes <- for (recipe_url in recipe_urls) {
   scrape_allrecipes(recipe_url)
 }
+```
