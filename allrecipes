@@ -3,14 +3,13 @@ library(tidyverse)
 library(rvest)
 library(stringi)
 
-
-# Due to `rvest` requiring a website input and each website's HTML being different, 
-# we will create different sets of code for each recipe website.
-
 # Allrecipes (https://www.allrecipes.com/)
 
-# ==============================================================================
-# Function
+# Function for scraping HTML
+# The `write.table()` function is set to append each recipe after the other each time a new URL passes through the function. 
+# Beware that this will overwrite the file every time if the file is not changed. 
+# The 1/3 and 1/8 Unicode characters are bugged and do not export correctly in R. I implemented a change such that they are readable in the output. 
+
 scrape_allrecipes <- function(URL) {
   recipe <- read_html(URL)
   
@@ -44,7 +43,7 @@ scrape_allrecipes <- function(URL) {
               quote = FALSE)
 }
 
-# 
+# Insert allrecipe recipe URLs here
 recipe_urls <- c(
   "https://www.allrecipes.com/recipe/8386501/french-vanilla-cake-with-french-vanilla-buttercream-frosting/",
   "https://www.allrecipes.com/recipe/19247/soft-oatmeal-cookies/",
@@ -52,6 +51,7 @@ recipe_urls <- c(
 
 )
 
+# Run this for loop to acquire multiple recipes at a time
 recipes <- for (recipe_url in recipe_urls) {
   scrape_allrecipes(recipe_url)
 }
