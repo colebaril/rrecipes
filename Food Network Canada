@@ -1,0 +1,69 @@
+# Load Packages 
+library(tidyverse)
+library(rvest)
+library(data.table)
+
+# The Food Network Canada (https://www.foodnetwork.ca)
+# Note: The Canadian site and American site are formatted differently. 
+
+# Function for scraping HTML
+# The `write.table()` function is set to append each recipe after the other each time a new URL passes through the function. 
+# Beware that this will overwrite the file every time if the file is not changed. 
+# The 1/3 and 1/8 Unicode characters are bugged and do not export correctly in R. I implemented a change such that they are readable in the output.
+# Due to weird CSS formatting with a bunch of oddly placed div sections, I comverted elements to a data table to format the output in a nicer way. 
+
+# The Food Network
+
+scrape_foodnetwork <- function(URL) {
+  recipe <- read_html(URL)
+  
+  title <- html_nodes(recipe, ".article-title") %>% 
+    html_text()
+  
+  ingredientsq <- html_nodes(recipe, ".subrecipe-ingredients--quantity") %>% 
+    html_text() %>% 
+    as.data.table()
+  
+  ingredientsi <- html_nodes(recipe, ".subrecipe-ingredients--name") %>% 
+    html_text() %>% 
+    as.data.table()
+  
+  ingredients <- cbind(quantity = ingredientsq, ingredient = ingredientsi) %>% 
+    unite(col = Ingredients, c(quantity.., ingredient..), sep = " ")%>% 
+    pull(Ingredients)
+  
+  ingredients <- gsub("⅛", "1/8", ingredients)
+  ingredients <- gsub("⅓", "1/3", ingredients)
+  
+  directionss <- html_nodes(recipe, ".recipe-step-content p") %>% 
+    html_text() %>% 
+    as.data.table()
+  
+  directionsn <- html_nodes(recipe, ".recipe-step-title") %>% 
+    html_text() %>% 
+    as.data.table()
+  
+  directions <- cbind(step = directionsn, directions = directionss) %>% 
+    unite(col = Directions, c(step.., directions..), sep = " ") %>% 
+    pull(Directions)
+  
+  print(title)
+  print(ingredients)
+  print(directions)
+  
+  write.table(c(title, ingredients, directions), 
+              file = "scraped_recipes_FN.txt", 
+              append = TRUE, 
+              row.names = FALSE, 
+              fileEncoding = "UTF-8")
+}
+
+recipe_urls <- c(
+  "https://www.foodnetwork.ca/recipe/vegan-pumpkin-waffles/",
+  "https://www.foodnetwork.ca/recipe/vegan-loaded-sweet-potatoes/"
+)
+
+recipes <- for (recipe_url in recipe_urls) {
+  scrape_foodnetwork(recipe_url)
+}
+
