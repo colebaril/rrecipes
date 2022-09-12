@@ -2,7 +2,7 @@
 
 This code is to scrape recipes from the web using R and the [`rvest`](https://rvest.tidyverse.org/) package.
 
-Currently works for allrecipes.com and foodnetwork.ca. Adding more sites in my spare time, as this is a hobby project.
+Currently supports allrecipes.com and foodnetwork.ca recipes. Adding more sites in my spare time, as this is a hobby project.
 
 # How to Use
 
