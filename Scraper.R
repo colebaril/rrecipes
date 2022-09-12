@@ -18,6 +18,8 @@ library(data.table)
 # Beware that this will overwrite the file every time if the file is not changed. 
 # The 1/3 and 1/8 Unicode characters are bugged and do not export correctly in R. 
 # I implemented a change such that they are readable in the output.
+# Due to weird CSS formatting with a bunch of oddly placed div sections, I 
+# comverted elements to a data table to format the output in a nicer way.
 
 # Scrapers ---------------------------------------------------------------------
 { 
