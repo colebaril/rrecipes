@@ -14,7 +14,7 @@ devtools::install_git("https://github.com/colebaril/rrecipes")
 
 # Functions
 
-## `recipe_urls()`
+## 1 `recipe_urls()`
 
 `recipe_urls()` takes in URL(s) and converts them into a list for downstream functions. 
 
@@ -27,7 +27,7 @@ recipe_urls(c(
 ))
 ```
 
-## `scrape()`
+## 2 `scrape()`
 
 Use the `scrape()` function to extract recipes from the web. Internet connection required. This function prints recipes to the console and saves a file called `scraped_recipes.txt` in your working directory. 
 
