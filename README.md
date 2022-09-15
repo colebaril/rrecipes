@@ -4,7 +4,13 @@ This code is to scrape recipes from the web using R and the [`rvest`](https://rv
 
 Currently supports allrecipes.com and foodnetwork.ca recipes. Adding more sites in my spare time, as this is a hobby project.
 
-# How to Use
+# Download
+
+To download, run the following code in R: 
+
+```{R}
+devtools::install_git("https://github.com/colebaril/rrecipes")
+```
 
 1. Download or copy code from the "Scraper" .R file. Ensure you have the necessary packages.
 2. Paste URLs in the URL Input section, following the formatting. Make sure it is the URL for a single recipe. 
