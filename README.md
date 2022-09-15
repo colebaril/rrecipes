@@ -46,3 +46,11 @@ Bache S, Wickham H (2022). _magrittr: A Forward-Pipe Operator for R_. R package 
 Dowle M, Srinivasan A (2021). _data.table: Extension of `data.frame`_. R package version 1.14.2,
 <https://CRAN.R-project.org/package=data.table>.
 
+References code:
+
+```{R}
+library(purrr)
+c("dplyr", "rvest", "tidyr", "magrittr", "data.table") %>%
+  map(citation) %>%
+  print(style = "text")
+```
