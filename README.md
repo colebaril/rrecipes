@@ -8,12 +8,21 @@ Currently supports allrecipes.com and foodnetwork.ca recipes. Adding more sites 
 
 To download, run the following code in R: 
 
-```{R}
+```{R, rrecipes download}
 devtools::install_git("https://github.com/colebaril/rrecipes")
 ```
 
-1. Download or copy code from the "Scraper" .R file. Ensure you have the necessary packages.
-2. Paste URLs in the URL Input section, following the formatting. Make sure it is the URL for a single recipe. 
-3. Ensure all functions are ran (scrapers, extra functions). 
-4. Run the executable function. 
-5. The recipes will now be saved in your working directory folder as a .txt file and printed in the console. Each recipe will be appended after the previous one. **Beware if you run the code twice, it will overwrite the original file unless you change the output name**.
+# Functions
+
+`recipe_urls()` takes in URL(s) and converts them into a list for downstream functions. 
+
+Ex:
+
+```{R, recipe_urls()}
+recipe_urls(c(
+  "https://www.allrecipes.com/recipe/25080/mmmmm-brownies/?internalSource=hub%20recipe&referringContentType=Search",
+  "https://www.foodnetwork.ca/recipe/the-pioneer-woman-bbq-pork-walking-tacos-are-the-ultimate-snack/"
+))
+```
+
+
