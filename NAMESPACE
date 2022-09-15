@@ -1,0 +1,5 @@
+exportPattern("^[[:alpha:]]+")
+importFrom(magrittr,"%>%")
+importFrom(dplyr, "pull")
+importFrom(tidyr, "unite")
+importFrom("utils", "write.table")
