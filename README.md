@@ -17,11 +17,11 @@ devtools::install_git("https://github.com/colebaril/rrecipes")
 
 ## `scrape()`
 
-Use the `scrape()` function to extract recipes from the web. Internet connection required. This function prints recipes to the console and saves a file called `scraped_recipes.txt` in your working directory. 
+Use the `scrape()` function employs a variety of other functions to extract recipes from the web. Internet connection required. This function prints recipes to the console and saves a file called `scraped_recipes.txt` in your working directory. 
 
 ### Argument
 
-The `recipe_urls = ` argument takes in 1 or more recipe URLs.
+The `recipe_urls = `  argument takes in 1 or more recipe URLs. Make sure the URL is for a single recipe, not a list.
 
 For example:
 
@@ -31,6 +31,18 @@ scrape(recipe_urls = c(
   "https://www.foodnetwork.ca/recipe/the-pioneer-woman-bbq-pork-walking-tacos-are-the-ultimate-snack/",
   "https://tasty.co/recipe/slow-cooker-ribs")) 
 ```
+
+# Supported Sites
+
+1. allrecipes.com
+2. foodnetwork.ca (Canadian version)
+3. tasty.co
+
+> More sites will be added as I feel like it, for this is a hobby project.
+
+# In Development 
+
+Currently, I am working on creating functions to search for the top recipe URLs from the web, which can then be passed through the `scrape()` function to extract their contents. 
 
 # References 
 
