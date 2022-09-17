@@ -9,10 +9,9 @@
 
 scrape <- function(recipe_urls) {
 
-  recipe_urls <- function(recipe_urls) {
+  recipe_urls <-
     assign("recipe_urls", recipe_urls, envir=.GlobalEnv)
     recipe_urls <- list(recipe_urls)
-  }
 
   `%rin%` <- function (pattern, list) {
     vapply(pattern, function (p) any(grepl(p, list)), logical(1L), USE.NAMES = FALSE)
