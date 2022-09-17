@@ -12,24 +12,25 @@ To download, run the following code in R:
 devtools::install_git("https://github.com/colebaril/rrecipes")
 ```
 
-# Functions
+# Functionality
 
-## 1 `recipe_urls()`
 
-`recipe_urls()` takes in URL(s) and converts them into a list for downstream functions. 
+## `scrape()`
+
+Use the `scrape()` function to extract recipes from the web. Internet connection required. This function prints recipes to the console and saves a file called `scraped_recipes.txt` in your working directory. 
+
+### Argument
+
+The `recipe_urls = ` argument takes in 1 or more recipe URLs.
 
 For example:
 
-```{R, recipe_urls()}
-recipe_urls(c(
+```{R}
+scrape(recipe_urls = c(
   "https://www.allrecipes.com/recipe/25080/mmmmm-brownies/?internalSource=hub%20recipe&referringContentType=Search",
-  "https://www.foodnetwork.ca/recipe/the-pioneer-woman-bbq-pork-walking-tacos-are-the-ultimate-snack/"
-))
+  "https://www.foodnetwork.ca/recipe/the-pioneer-woman-bbq-pork-walking-tacos-are-the-ultimate-snack/",
+  "https://tasty.co/recipe/slow-cooker-ribs")) 
 ```
-
-## 2 `scrape()`
-
-Use the `scrape()` function to extract recipes from the web. Internet connection required. This function prints recipes to the console and saves a file called `scraped_recipes.txt` in your working directory. 
 
 # References 
 
