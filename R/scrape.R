@@ -18,6 +18,10 @@ for (recipe_url in recipe_urls) {
   if("foodnetwork.*" %rin% recipe_urls){
     scrape_foodnetwork(recipe_url)
   }
+  if("tasty.*" %rin% recipe_urls){
+    scrape_tasty(recipe_url)
+  }
 }
 }
+
 
