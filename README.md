@@ -6,10 +6,11 @@ Currently supports allrecipes.com and foodnetwork.ca recipes. Adding more sites 
 
 # Download
 
-To download, run the following code in R: 
+To download and load the package, run the following code in R: 
 
 ```{R, rrecipes download}
 devtools::install_git("https://github.com/colebaril/rrecipes")
+library(rrecipes)
 ```
 
 # Functionality
