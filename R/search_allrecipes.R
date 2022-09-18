@@ -10,21 +10,22 @@
 #' @import magrittr
 #' @export
 
-  search_allrecipes <- function(query) {
+search_allrecipes <- function(query) {
 
-    url <- 'https://www.allrecipes.com/search/results/?search='
+  url <- 'https://www.allrecipes.com/search/results/?search='
 
-    searchquery <- paste(url, query, sep = "")
+  searchquery <- paste(url, query, sep = "")
 
-    first_page <- read_html(searchquery)
-    url_list <- first_page %>%
-      html_elements("a") %>%
-      html_attr("href")
+  first_page <- read_html(searchquery)
+  url_list <- first_page %>%
+    html_elements("a") %>%
+    html_attr("href")
 
-    url_list <- data.frame(url_list) %>%
-      filter(grepl(query, url_list)) %>%
-      unique()
+  url_list <- data.frame(url_list) %>%
+    filter(grepl(query, url_list)) %>%
+    filter(!grepl('reicipes', url_list)) %>% 
+    unique()
 
-    url_list[c(1:10), ]
+  url_list[c(1:10), ]
 
-  }
+}
