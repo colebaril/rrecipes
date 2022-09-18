@@ -22,7 +22,7 @@
       html_attr("href")
 
     url_list <- data.frame(url_list) %>%
-      filter(grepl('brownies|brownie', url_list)) %>%
+      filter(grepl(query, url_list)) %>%
       unique()
 
     url_list[c(1:10), ]
