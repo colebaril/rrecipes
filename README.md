@@ -32,6 +32,35 @@ scrape(recipe_urls = c(
   "https://www.foodnetwork.ca/recipe/the-pioneer-woman-bbq-pork-walking-tacos-are-the-ultimate-snack/",
   "https://tasty.co/recipe/slow-cooker-ribs")) 
 ```
+## Search Recipe Websites 
+
+For each supported website, a search feature has been or is being implemented. 
+
+### `search_allrecipes()`
+
+The `search_allrecipes()` function works by taking in an argument `query = `, which can be any word, and will return the top 10 URLs for your query. 
+
+For example, running this:
+
+```{R}
+search_allrecipes(query = "brownies")
+```
+Yields this:
+```
+[1] "https://www.allrecipes.com/recipe/25080/mmmmm-brownies/"            "https://www.allrecipes.com/recipe/68436/vegan-brownies/"           
+ [3] "https://www.allrecipes.com/recipe/10549/best-brownies/"             "https://www.allrecipes.com/recipe/10177/blonde-brownies-i/"        
+ [5] "https://www.allrecipes.com/recipe/25817/white-brownies/"            "https://www.allrecipes.com/recipe/69886/best-brownies-ever/"       
+ [7] "https://www.allrecipes.com/recipe/16607/cheesecake-brownies/"       "https://www.allrecipes.com/recipe/9698/walnut-brownies/"           
+ [9] "https://www.allrecipes.com/recipe/277538/no-bake-healthy-brownies/" "https://www.allrecipes.com/recipe/274800/coffee-brownies/"         
+ ```
+
+The functions work with `dplyr`. For example, see below as we search for brownie recipe and scrape the code. In this example, The outputs are printed in the console and the brownie URLs are piped through the `scrape()` function which retrieves the complete recipes from the site and saves the recipes in a file called `scraped_recipes.txt` in your file directory.
+
+```
+brownies <- search_allrecipes(query = "brownies") %>% 
+  scrape()
+```
+
 
 # Supported Sites
 
@@ -43,7 +72,7 @@ scrape(recipe_urls = c(
 
 # In Development 
 
-Currently, I am working on creating functions to search for the top recipe URLs from the web, which can then be passed through the `scrape()` function to extract their contents. 
+Support for more sites for both the `scrape()` and search functions are being implemented. Work is being done to group all search functions into one search function, although I am working out the kinks on this. 
 
 # References 
 
