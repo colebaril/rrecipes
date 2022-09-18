@@ -21,9 +21,11 @@ search_allrecipes <- function(query) {
     html_elements("a") %>%
     html_attr("href")
 
+  remove.list <- paste(c("/recipes/", "/gallery/"), collapse = '|')
+
   url_list <- data.frame(url_list) %>%
     filter(grepl(query, url_list)) %>%
-    filter(!grepl('/recipes/', url_list)) %>%
+    filter(!grepl(remove.list, url_list)) %>%
     unique()
 
   url_list[c(1:10), ]
