@@ -34,7 +34,7 @@ scrape(recipe_urls = c(
 ```
 ## Search Recipe Websites 
 
-For each supported website, a search feature has been or is being implemented. 
+For each supported website, a search feature has been or is being implemented.
 
 ### `search_allrecipes()`
 
@@ -54,13 +54,14 @@ Yields this:
  [9] "https://www.allrecipes.com/recipe/277538/no-bake-healthy-brownies/" "https://www.allrecipes.com/recipe/274800/coffee-brownies/"         
  ```
 
-The functions work with `dplyr`. For example, see below as we search for brownie recipe and scrape the code. In this example, The outputs are printed in the console and the brownie URLs are piped through the `scrape()` function which retrieves the complete recipes from the site and saves the recipes in a file called `scraped_recipes.txt` in your file directory.
+The functions work with `dplyr`. For example, see below as we search for brownie recipes and scrape the code. In this example, The outputs are printed in the console and the brownie URLs are piped through the `scrape()` function which retrieves the complete recipes from the site and saves the recipes in a file called `scraped_recipes.txt` in your file directory.
 
 ```
 brownies <- search_allrecipes(query = "brownies") %>% 
   scrape()
 ```
 
+**Note:** Currently, single-word searches are only allowed (e.g., "pie" or "apple", but not "apple pie"). Adding a "+" character to the string (for the search URL to work) causes a whole bunch of issues which I am trying to solve to allow more specific searches. 
 
 # Supported Sites
 
