@@ -24,7 +24,6 @@ search_allrecipes <- function(query) {
   url_list <- data.frame(url_list) %>%
     filter(grepl(query, url_list)) %>%
     unique()
-  url_list = url_list[!grepl("recipes", url_list),]
 
   url_list[c(1:10), ]
 
