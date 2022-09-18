@@ -10,11 +10,11 @@
 #' @import magrittr
 #' @export
 
-  search_allrecipes <- function(search_allrecipes_query) {
+  search_allrecipes <- function(query) {
 
     url <- 'https://www.allrecipes.com/search/results/?search='
 
-    searchquery <- paste(url, search_allrecipes_query, sep = "")
+    searchquery <- paste(url, query, sep = "")
 
     first_page <- read_html(searchquery)
     url_list <- first_page %>%
