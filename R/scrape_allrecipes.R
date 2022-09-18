@@ -13,7 +13,8 @@ scrape_allrecipes <- function(URL) {
   recipe <- rvest::read_html(URL)
 
   title <- rvest::html_nodes(recipe, ".headline-wrapper") %>%
-    rvest::html_text()
+    rvest::html_text() %>%
+    trimws()
 
   ingredients <- rvest::html_nodes(recipe, ".ingredients-item-name") %>%
     rvest::html_text() %>%
