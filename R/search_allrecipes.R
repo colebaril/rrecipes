@@ -16,10 +16,10 @@ search_allrecipes <- function(query) {
 
   searchquery <- paste(url, query, sep = "")
 
-  first_page <- read_html(searchquery)
+  first_page <- rvest::read_html(searchquery)
   url_list <- first_page %>%
-    html_elements("a") %>%
-    html_attr("href")
+    rvest::html_elements("a") %>%
+    rvest::html_attr("href")
 
   remove.list <- paste(c("/recipes/", "/gallery/"), collapse = '|')
 
