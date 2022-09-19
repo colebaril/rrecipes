@@ -90,11 +90,17 @@ Bache S, Wickham H (2022). _magrittr: A Forward-Pipe Operator for R_. R package 
 Dowle M, Srinivasan A (2021). _data.table: Extension of `data.frame`_. R package version 1.14.2,
 <https://CRAN.R-project.org/package=data.table>.
 
+Yu G (2020). _hexSticker: Create Hexagon Sticker in R_. R package version 0.4.9, <https://CRAN.R-project.org/package=hexSticker>.
+
+Qiu Y, details. aotifSfAf (2022). _sysfonts: Loading Fonts into R_. R package version 0.8.8, <https://CRAN.R-project.org/package=sysfonts>.
+
+Ooms J (2021). _magick: Advanced Graphics and Image-Processing in R_. R package version 2.7.3, <https://CRAN.R-project.org/package=magick>.
+
 References code:
 
 ```{R}
 library(purrr)
-c("dplyr", "rvest", "tidyr", "magrittr", "data.table") %>%
+c("dplyr", "rvest", "tidyr", "magrittr", "data.table", "hexSticker", "sysfonts", "magick") %>%
   map(citation) %>%
   print(style = "text")
 ```
