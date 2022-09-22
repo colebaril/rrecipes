@@ -1,4 +1,4 @@
-# rrecipes ![](https://github.com/colebaril/rrecipes/blob/main/logo.png)
+# rrecipes <img src='logo.png' align="right" height="139" />
 
 This package contains some simple functions to scrape recipes from the web using the [`rvest`](https://rvest.tidyverse.org/) package. I got this idea as I was scrolling through paragraphs of mostly useless text on recipe websites trying to find the actual recipe. I also became frustrated when trying to copy and paste recipes to other applications and the website was less than ideal for doing so. This package is useful if you wish to extract multiple recipes from the web at once. It can also be used to convert recipe text on a website into a easily usable format (e.g., if you wish to copy and paste into another document or recipe book, as I am doing). 
 
