@@ -105,7 +105,7 @@ c("dplyr", "rvest", "tidyr", "magrittr", "data.table", "hexSticker", "sysfonts",
   print(style = "text")
 ```
 
-# Logo Code
+Logo Code
 
 ```{R}
 library(hexSticker)
