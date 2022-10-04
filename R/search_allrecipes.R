@@ -21,7 +21,7 @@ search_allrecipes <- function(query) {
     rvest::html_elements("a") %>%
     rvest::html_attr("href")
 
-  remove.list <- paste(c("/recipes/", "/gallery/"), collapse = '|')
+  remove.list <- paste(c("/recipes/", "/gallery/", "/article/"), collapse = '|')
 
   url_list <- data.frame(url_list) %>%
     filter(grepl(query, url_list)) %>%
