@@ -12,7 +12,7 @@
 
 search_allrecipes <- function(query) {
 
-  url <- 'https://www.allrecipes.com/search?q=' # This recently changed on the website. 
+  url <- 'https://www.allrecipes.com/search?q=' # This recently changed on the website.
 
   searchquery <- paste(url, query, sep = "")
 
