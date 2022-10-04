@@ -12,15 +12,15 @@
 scrape_allrecipes <- function(URL) {
   recipe <- rvest::read_html(URL)
 
-  title <- rvest::html_nodes(recipe, ".headline-wrapper") %>%
+  title <- rvest::html_nodes(recipe, "#article-heading_1-0") %>%
     rvest::html_text() %>%
     trimws()
 
-  ingredients <- rvest::html_nodes(recipe, ".ingredients-item-name") %>%
+  ingredients <- rvest::html_nodes(recipe, "#mntl-structured-ingredients_1-0 p") %>%
     rvest::html_text() %>%
     trimws()
 
-  directions <- rvest::html_nodes(recipe, ".instructions-section-item") %>%
+  directions <- rvest::html_nodes(recipe, ".mntl-sc-block-startgroup") %>%
     rvest::html_text() %>%
     trimws()
 
