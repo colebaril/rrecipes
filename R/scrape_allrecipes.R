@@ -20,7 +20,7 @@ scrape_allrecipes <- function(URL) {
     rvest::html_text() %>%
     trimws()
 
-  directions <- rvest::html_nodes(recipe, ".mntl-sc-block-startgroup") %>%
+  directions <- rvest::html_nodes(recipe, "#mntl-sc-block_2-0 .mntl-sc-block-startgroup") %>%
     rvest::html_text() %>%
     trimws()
 
@@ -30,16 +30,17 @@ scrape_allrecipes <- function(URL) {
   directions <- gsub(" Advertisement", "", directions)
   directions <- gsub(" {2,}", " ", directions)
   directions <- stringr::str_trim(directions, "right")
+  directions <- stringr::str_replace_all(directions, "[\r\n]" , "")
 
   print(title)
   print(ingredients)
   print(directions)
 
   utils::write.table(c(title, ingredients, directions),
-              file = "scraped_recipes.txt",
-              append = TRUE,
-              row.names = FALSE,
-              fileEncoding = "UTF-8",
-              quote = FALSE,
-              col.names = FALSE)
+                     file = "scraped_recipes.txt",
+                     append = TRUE,
+                     row.names = FALSE,
+                     fileEncoding = "UTF-8",
+                     quote = FALSE,
+                     col.names = FALSE)
 }
