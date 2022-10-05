@@ -57,6 +57,8 @@ Yields this:
 
 The `search_foodnetwork()` function works similar to `search_allrecipes()` however due to how the search results are displayed on the website, I have included parameters that specify which page number is searched. To get a decent number of recipes, I have opted for 3 pages. For some search queries, this could result in less than 10 search results (the rest specified by `NA`). I can always increase the number of pages. 
 
+## Use Pipes
+
 The functions work with `dplyr`. For example, see below as we search for brownie recipes and scrape the code. In this example, The outputs are printed in the console and the brownie URLs are piped through the `scrape()` function which retrieves the complete recipes from the site and saves the recipes in a file called `scraped_recipes.txt` in your file directory.
 
 ```
