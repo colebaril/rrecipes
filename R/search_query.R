@@ -5,8 +5,9 @@
 #' @return search_query
 #' @export
 
-query <- function(query) {
-  assign("search_allrecipes_query", query, envir=.GlobalEnv)
+search_query <- function(query) {
+
+  assign("search_query", query, envir=.GlobalEnv)
   query <- list(query)
 }
 
