@@ -20,9 +20,9 @@ library(rrecipes)
 
 Use the `scrape()` function employs a variety of other functions to extract recipes from the web. Internet connection required. This function prints recipes to the console and saves a file called `scraped_recipes.txt` in your working directory. 
 
-### Argument
+### Arguments
 
-The `recipe_urls = `  argument takes in 1 or more recipe URLs. Make sure the URL is for a single recipe, not a list.
+`recipe_urls = `:  Takes in 1 or more recipe URLs. Make sure the URL is for a single recipe, not a list.
 
 For example:
 
@@ -41,6 +41,7 @@ The `search_recipes()` function works by taking in an argument `query =` which c
 ### Arguments
 
 `query =`: The search term (e.g., "apple pie"). 
+
 `site =`: The site you wish to search (e.g., "allrecipes"). 
 
 ### Example
