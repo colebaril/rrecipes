@@ -62,11 +62,9 @@ The `search_foodnetwork()` function works similar to `search_allrecipes()` howev
 The functions work with `dplyr`. For example, see below as we search for brownie recipes and scrape the code. In this example, The outputs are printed in the console and the brownie URLs are piped through the `scrape()` function which retrieves the complete recipes from the site and saves the recipes in a file called `scraped_recipes.txt` in your file directory.
 
 ```
-brownies <- search_allrecipes(query = "brownies") %>% 
+brownies <- search_allrecipes(query = "apple pie") %>% 
   scrape()
 ```
-
-**Note:** Currently, single-word searches are only allowed (e.g., "pie" or "apple", but not "apple pie"). Adding a "+" character to the string (for the search URL to work) causes a whole bunch of issues which I am trying to solve to allow more specific searches. 
 
 # Supported Sites
 
@@ -110,7 +108,7 @@ c("dplyr", "rvest", "tidyr", "magrittr", "data.table", "hexSticker", "sysfonts",
   print(style = "text")
 ```
 
-Logo Code
+Logo Code:
 
 ```{R}
 library(hexSticker)
