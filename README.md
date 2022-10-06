@@ -36,33 +36,35 @@ scrape(recipe_urls = c(
 
 For each supported website, a search feature has been or is being implemented.
 
-### `search_allrecipes()`
-
-The `search_allrecipes()` function works by taking in an argument `query = `, which can be any word, and will return the top 10 URLs for your query. 
+The `search_recipes` function works by taking in an argument `query =` which can be any food you want to search for and `site =`, wwhich can be any of the supported sites, and will return the top 10 URLs for your query. If there are less than 10 URLs based on the search, `NA` will appear on the list instead.
 
 For example, running this:
 
 ```{R}
-search_allrecipes(query = "brownies")
+search_recipes(query = "apple pie",
+               site = "allrecipes")
 ```
 Yields this:
 ```
-[1] "https://www.allrecipes.com/recipe/25080/mmmmm-brownies/"            "https://www.allrecipes.com/recipe/68436/vegan-brownies/"           
- [3] "https://www.allrecipes.com/recipe/10549/best-brownies/"             "https://www.allrecipes.com/recipe/10177/blonde-brownies-i/"        
- [5] "https://www.allrecipes.com/recipe/25817/white-brownies/"            "https://www.allrecipes.com/recipe/69886/best-brownies-ever/"       
- [7] "https://www.allrecipes.com/recipe/16607/cheesecake-brownies/"       "https://www.allrecipes.com/recipe/9698/walnut-brownies/"           
- [9] "https://www.allrecipes.com/recipe/277538/no-bake-healthy-brownies/" "https://www.allrecipes.com/recipe/274800/coffee-brownies/"         
+ [1] "https://www.allrecipes.com/recipe/283215/salted-caramel-apple-pie/"             
+ [2] "https://www.allrecipes.com/recipe/15806/chemical-apple-pie-no-apple-apple-pie/" 
+ [3] "https://www.allrecipes.com/recipe/235346/apple-pie-moonshine/"                  
+ [4] "https://www.allrecipes.com/recipe/261468/apple-pie-dip/"                        
+ [5] "https://www.allrecipes.com/recipe/234166/apple-pie-liquor/"                     
+ [6] "https://www.allrecipes.com/recipe/213569/grandmas-iron-skillet-apple-pie/"      
+ [7] "https://www.allrecipes.com/recipe/255040/awesome-apple-pie-cookies/"            
+ [8] "https://www.allrecipes.com/recipe/239918/apple-jam-apple-pie-in-a-jar/"         
+ [9] "https://www.allrecipes.com/recipe/15683/dutch-apple-pie-with-oatmeal-streusel/" 
+[10] "https://www.allrecipes.com/recipe/218330/grandmas-apple-pie-ala-mode-moonshine/"     
  ```
-### `search_foodnetwork()`
-
-The `search_foodnetwork()` function works similar to `search_allrecipes()` however due to how the search results are displayed on the website, I have included parameters that specify which page number is searched. To get a decent number of recipes, I have opted for 3 pages. For some search queries, this could result in less than 10 search results (the rest specified by `NA`). I can always increase the number of pages. 
 
 ## Use Pipes
 
 The functions work with `dplyr`. For example, see below as we search for brownie recipes and scrape the code. In this example, The outputs are printed in the console and the brownie URLs are piped through the `scrape()` function which retrieves the complete recipes from the site and saves the recipes in a file called `scraped_recipes.txt` in your file directory.
 
 ```
-brownies <- search_allrecipes(query = "apple pie") %>% 
+apple_pie <- search_recipes(query = "apple pie",
+                           site = "allrecipes") %>% 
   scrape()
 ```
 
