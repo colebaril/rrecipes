@@ -19,21 +19,22 @@ search_foodnetwork <- function(query) {
   page2 <- "/?page=2"
   page3 <- "/?page=3"
 
-# ----------- Bind --------------
 # This section is to extract the results of the top 3 pages. It must be done in different steps
 # due to how the URL links results on the page.
 
   # Page 1 of results
-  searchquery1 <- paste(url, query, sep = "")
-  searchquery1 <- paste(searchquery1, page1, sep = "")
+  query <- gsub(" ", "%20", query) # Change spaces in search query to `%20` to work in URL.
+  searchquery1 <- paste(url, query, sep = "") # Combines base URL and query together. 
+  searchquery1 <- paste(searchquery1, page1, sep = "") # Appends page number specification at the end of URL. 
 
-  first_page1 <- rvest::read_html(searchquery1)
+  first_page1 <- rvest::read_html(searchquery1) # Extract
   url_list1 <- first_page1 %>%
     rvest::html_elements("a") %>%
     rvest::html_attr("href") %>%
     data.frame()
 
   # Page 2 of results
+  query <- gsub(" ", "%20", query) 
   searchquery2 <- paste(url, query, sep = "")
   searchquery2 <- paste(searchquery2, page2, sep = "")
 
@@ -44,6 +45,7 @@ search_foodnetwork <- function(query) {
     data.frame()
 
   # Page 3 of results
+  query <- gsub(" ", "%20", query) 
   searchquery3 <- paste(url, query, sep = "")
   searchquery3 <- paste(searchquery3, page3, sep = "")
 
@@ -60,15 +62,15 @@ url_list <- rbind(url_list1, url_list2, url_list3) %>%
 
 names(url_list) <- "url_list"
 
-remove.list <- paste(c("tag", "article", "/search/"), collapse = '|')
+query <- gsub("%20", "-", query, fixed = TRUE) # Change `%20` in query to `-` to work with recipe URL.
 
-url_list <- url_list %>%
+remove.list <- paste(c("tag", "article", "/search/"), collapse = '|') # Specify rows to remove where these are present.
+
+url_list <- url_list %>% # Clean and format recipe list.
   filter(!grepl(remove.list, url_list) & grepl(query, url_list)) %>%
   unique()
 
 
-  url_list[c(1:10), ]
+  url_list[c(1:10), ] # Limit results to top 10 recipes.
 
 }
-
-
