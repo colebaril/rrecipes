@@ -31,12 +31,15 @@ scrape_tasty <- function(URL) {
   directions <- gsub(" Advertisement", "", directions)
   directions <- gsub(" {2,}", " ", directions)
   directions <- stringr::str_trim(directions, "right")
+  
+  sep <- '--'
 
   print(title)
   print(ingredients)
   print(directions)
+  print(sep)
 
-  utils::write.table(c(title, ingredients, directions),
+  utils::write.table(c(title, ingredients, directions, sep),
                      file = "scraped_recipes.txt",
                      append = TRUE,
                      row.names = FALSE,
