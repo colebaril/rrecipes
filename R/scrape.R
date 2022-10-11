@@ -23,6 +23,9 @@ for (recipe_url in recipe_urls) {
   if("tasty.*" %rin% recipe_urls){
     scrape_tasty(recipe_url)
   }
+  if("thepioneerwoman.*" %rin% recipe_urls){
+    scrape_pioneerwoman(recipe_url)
+  }
 }
 }
 
