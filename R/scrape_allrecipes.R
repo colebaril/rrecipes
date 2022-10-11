@@ -31,12 +31,15 @@ scrape_allrecipes <- function(URL) {
   directions <- gsub(" {2,}", " ", directions)
   directions <- stringr::str_trim(directions, "right")
   directions <- stringr::str_replace_all(directions, "[\r\n]" , "")
+  
+  sep <- '--'
 
   print(title)
   print(ingredients)
   print(directions)
+  print(sep)
 
-  utils::write.table(c(title, ingredients, directions),
+  utils::write.table(c(title, ingredients, directions, sep),
                      file = "scraped_recipes.txt",
                      append = TRUE,
                      row.names = FALSE,
