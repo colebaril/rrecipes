@@ -39,6 +39,7 @@ scrape_pioneerwoman <- function(URL) {
   print(title)
   print(ingredients)
   print(directions)
+  print(sep)
 
   utils::write.table(c(title, ingredients, directions, sep),
                      file = "scraped_recipes.txt",
