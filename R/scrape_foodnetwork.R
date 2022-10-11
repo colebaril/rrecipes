@@ -42,12 +42,15 @@ scrape_foodnetwork <- function(URL) {
   directions <- cbind(step = directionsn, directions = directionss) %>%
     unite(col = Directions, c(step.., directions..), sep = " ") %>%
     dplyr::pull(Directions)
+  
+  sep <- '--'
 
   print(title)
   print(ingredients)
   print(directions)
+  print(sep)
 
-  utils::write.table(c(title, ingredients, directions),
+  utils::write.table(c(title, ingredients, directions, sep),
               file = "scraped_recipes.txt",
               append = TRUE,
               row.names = FALSE,
