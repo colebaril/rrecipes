@@ -10,7 +10,7 @@
 #' @import magrittr
 #' @export
 
-search_pioneerwoman <- function(query) {
+search_pioneerwoman <- function(query, number) {
 
   url <- 'https://www.thepioneerwoman.com/search/?q=' # This recently changed on the website.
 
@@ -37,7 +37,9 @@ search_pioneerwoman <- function(query) {
     unique()
 
 
-  url_list[c(1:10), ] # Limit results to top 10 recipes.
+  url_list <- url_list[c(1:number), ] # Limits number of recipes to user specified input.
+  url_list <- url_list[!is.na(url_list)] # Exclude NAs from printing.
+  url_list
 
 }
 
