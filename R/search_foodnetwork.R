@@ -10,7 +10,7 @@
 #' @import magrittr
 #' @export
 
-search_foodnetwork <- function(query) {
+search_foodnetwork <- function(query, number) {
 
   url <- 'https://www.foodnetwork.ca/search/' # This recently changed on the website.
 
@@ -71,6 +71,8 @@ url_list <- url_list %>% # Clean and format recipe list.
   unique()
 
 
-  url_list[c(1:10), ] # Limit results to top 10 recipes.
+  url_list <- url_list[c(1:number), ] # Limits number of recipes to user specified input.
+  url_list <- url_list[!is.na(url_list)] # Exclude NAs from printing.
+  url_list
 
 }
