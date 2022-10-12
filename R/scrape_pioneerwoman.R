@@ -20,7 +20,8 @@ scrape_pioneerwoman <- function(URL) {
     rvest::html_text() %>%
     trimws()
 
-  directions <- rvest::html_nodes(recipe, ".et3p2gv0") %>%
+  # Using html_elements() with XPath specification to strip CSS Styling code from the text. 
+  directions <- rvest::html_elements(recipe, xpath='//ol[contains(@class, "et3p2gv0")]/li/text()') %>%
     rvest::html_text() %>%
     trimws()
 
