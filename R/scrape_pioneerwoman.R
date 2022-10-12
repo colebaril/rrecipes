@@ -20,7 +20,7 @@ scrape_pioneerwoman <- function(URL) {
     rvest::html_text() %>%
     trimws()
 
-  directions <- rvest::html_nodes(recipe, ".evb48wp3 .et3p2gv0") %>%
+  directions <- rvest::html_nodes(recipe, ".et3p2gv0") %>%
     rvest::html_text() %>%
     trimws()
 
