@@ -11,11 +11,11 @@
 search_recipes <- function(query, site){
 
   if("allrecipes" == site){
-    search_allrecipes(query)
+    search_allrecipes(query, number)
   } else if ("foodnetwork" == site){
-    search_foodnetwork(query)
+    search_foodnetwork(query, number)
   } else if ("pioneerwoman" == site){
-    search_pioneerwoman(query)
+    search_pioneerwoman(query, number)
   }
 
   else stop('No correct recipe sites entered. Supported sites include "allrecipes" and "foodnetwork".')
