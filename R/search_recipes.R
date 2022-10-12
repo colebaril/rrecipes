@@ -15,7 +15,7 @@ search_recipes <- function(query, site){
   } else if ("foodnetwork" == site){
     search_foodnetwork(query)
   } else if ("pioneerwoman" == site){
-    search_pioneerwoman()
+    search_pioneerwoman(query)
   }
 
   else stop('No correct recipe sites entered. Supported sites include "allrecipes" and "foodnetwork".')
