@@ -36,13 +36,15 @@ scrape(recipe_urls = c(
 
 For each supported website, a search feature has been or is being implemented.
 
-The `search_recipes()` function works by taking in an argument `query =` which can be any food you want to search for and `site =`, wwhich can be any of the supported sites, and will return the top 10 URLs for your query. If there are less than 10 URLs based on the search, `NA` will appear on the list instead.
+The `search_recipes()` function works by taking in an argument `query =` which can be any food you want to search for and `site =`, wwhich can be any of the supported sites, and will return the top 10 URLs for your query by default. If there are less than 10 URLs based on the search, `NA` will appear on the list instead.
 
 ### Arguments
 
 `query =`: The search term (e.g., "apple pie"). 
 
 `site =`: The site you wish to search (e.g., "allrecipes"). 
+
+`number =`: The number of URLs you wish to return. There may be less results than requested.
 
 ### Example
 
@@ -68,7 +70,7 @@ Yields this:
 
 ## Use Pipes for Efficiency
 
-The functions work with `dplyr`. For example, see below as we search for brownie recipes and scrape the code. In this example, The outputs are printed in the console and the brownie URLs are piped through the `scrape()` function which retrieves the complete recipes from the site and saves the recipes in a file called `scraped_recipes.txt` in your file directory.
+The functions work with `magrittr` pipes. For example, see below as we search for brownie recipes and scrape the code. In this example, The outputs are printed in the console and the brownie URLs are piped through the `scrape()` function which retrieves the complete recipes from the site and saves the recipes in a file called `scraped_recipes.txt` in your file directory.
 
 ```
 apple_pie <- search_recipes(query = "apple pie",
