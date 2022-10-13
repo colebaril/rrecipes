@@ -52,7 +52,8 @@ For example, running this:
 
 ```{R}
 search_recipes(query = "apple pie",
-               site = "allrecipes")
+               site = "allrecipes",
+               number = 10)
 ```
 Yields this:
 ```
