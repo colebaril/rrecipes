@@ -8,7 +8,7 @@
 #' @import magrittr
 #' @export
 
-search_recipes <- function(query, site){
+search_recipes <- function(query, site, number){
 
   if("allrecipes" == site){
     search_allrecipes(query, number)
