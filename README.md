@@ -36,7 +36,7 @@ scrape(recipe_urls = c(
 
 For each supported website, a search feature has been or is being implemented.
 
-The `search_recipes()` function works by taking in an argument `query =` which can be any food you want to search for and `site =`, wwhich can be any of the supported sites, and will return the top 10 URLs for your query by default. If there are less than 10 URLs based on the search, `NA` will appear on the list instead.
+The `search_recipes()` function works by taking in an argument `query =` which can be any food you want to search for and `site =`, wwhich can be any of the supported sites, and will return the top 10 URLs for your query by default. You can also specify the number of URLs returned as demonstrated below. The number returned may be less than the number requested where there are no more recipes. 
 
 ### Arguments
 
