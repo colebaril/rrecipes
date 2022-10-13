@@ -46,9 +46,9 @@ The `search_recipes()` function works by taking in an argument `query =` which c
 
 **The following commands may be entered for `site`**
 
-Foodnetwork.ca: `foodnetwork`
-allrecipes.com: `allrecipes`
-thepioneerwoman.com: `pioneerwoman`
+- Foodnetwork.ca: `foodnetwork`
+- allrecipes.com: `allrecipes`
+- thepioneerwoman.com: `pioneerwoman`
 
 
 `number =`: The number of URLs you wish to return. There may be less results than requested.
