@@ -44,6 +44,12 @@ The `search_recipes()` function works by taking in an argument `query =` which c
 
 `site =`: The site you wish to search (e.g., "allrecipes"). 
 
+> The following commands may be entered for `site`
+Foodnetwork.ca: `foodnetwork`
+allrecipes.com: `allrecipes`
+thepioneerwoman.com: `pioneerwoman`
+
+
 `number =`: The number of URLs you wish to return. There may be less results than requested.
 
 ### Example
@@ -84,6 +90,7 @@ apple_pie <- search_recipes(query = "apple pie",
 1. allrecipes.com
 2. foodnetwork.ca (Canadian version)
 3. tasty.co
+4. thepioneerwoman.com
 
 > More sites will be added as I feel like it, for this is a hobby project.
 
